@@ -1,0 +1,29 @@
+.mission-container {
+  background: url("../img/mission_bkd.jpg") fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.mission-inner {
+  background: rgba(67, 67, 67, 0.4);
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.mission-text {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 3.9vw;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  line-height: 1.3em;
+}
+
+.mission-title {
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  margin-bottom: 1.5em;
+}

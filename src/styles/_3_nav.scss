@@ -1,0 +1,165 @@
+.nav-links {
+  position: relative;
+  height: 100%;
+  font-size: 40px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+.nav-bar {
+  height: 70px;
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+  top: 0;
+}
+
+.nav-bar-inner {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  padding: 0 7%;
+  justify-content: flex-end;
+  box-sizing: border-box;
+}
+
+.nav-button {
+  cursor: pointer;
+  z-index: 100;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  > span {
+    width: 32px;
+    height: 3px;
+    background: var(--soft-white);
+    display: block;
+    margin: 6px auto;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &.active {
+    transform: rotate(45deg);
+
+    span:nth-child(1) {
+      transform: translateY(9px);
+    }
+
+    span:nth-child(2) {
+      opacity: 0;
+    }
+
+    span:nth-child(3) {
+      transform: translateY(-9px) rotate(90deg);
+    }
+  }
+}
+
+.nav-item {
+  display: block;
+  min-height: 50px;
+  position: relative;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+
+  &:after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 0%;
+    top: 55px;
+    right: 0;
+    background: var(--yellow);
+    transition: width 0.3s ease;
+  }
+
+  &:hover:after {
+    width: 100%;
+    right: auto;
+    left: 0;
+  }
+
+  a {
+    display: block;
+    position: relative;
+    color: var(--soft-white);
+    text-decoration: none;
+    overflow: hidden;
+    margin-top: 5px;
+    padding-bottom: 5px;
+  }
+}
+
+.nav-background {
+  height: 100%;
+  width: 100%;
+  background: var(--dark-gray);
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  transition: top 0.3s ease;
+  box-sizing: border-box;
+
+  &.hidden {
+    top: -70px;
+  }
+}
+
+.nav-logo-container {
+  height: 35px;
+  margin-top: 0;
+  transition: margin-top 0.5s ease;
+
+  a {
+    height: 100%;
+  }
+}
+
+.nav-logo {
+  height: 100%;
+}
+
+.nav-menu {
+  align-items: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+  height: 100%;
+  padding: 0;
+}
+
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.1s, height 0.35s;
+  overflow: hidden;
+  height: 0%;
+
+  &.visible {
+    opacity: 0.93;
+    height: 100%;
+    background: #555;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
