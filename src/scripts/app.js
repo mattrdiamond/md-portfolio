@@ -1,5 +1,5 @@
-import fart from "./Fart";
-fart();
+import test from "./Test";
+test();
 // ------------------------------ hero slideshow
 
 // const slides = document.querySelectorAll("#slides .slide");
