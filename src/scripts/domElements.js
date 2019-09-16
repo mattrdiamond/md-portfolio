@@ -1,0 +1,11 @@
+export const navButton = document.getElementById("nav-button");
+export const navOverlay = document.getElementById("nav-overlay");
+export const navLinks = document.querySelectorAll(".nav-bar a");
+export const headerArrow = document.querySelector(".header-arrow");
+export const slideUpImg = document.querySelectorAll(".slide-up");
+export const landingPage = document.getElementById("home");
+export const landingText = document.getElementById("landing-text");
+export const txtElement = document.getElementById("header-attributes");
+export const words = JSON.parse(txtElement.getAttribute("data-words"));
+export const wait = txtElement.getAttribute("data-wait");
+export const cursor = document.querySelector("#cursor");

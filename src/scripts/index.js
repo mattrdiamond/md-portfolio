@@ -1,2 +1,6 @@
 import "../styles/index.scss";
-import app from "./app";
+import navButton from "./navButton";
+import smoothScroll from "./smoothScroll";
+import slideUp from "./slideUp";
+import landingPage from "./landingPage";
+import footer from "./footer";
