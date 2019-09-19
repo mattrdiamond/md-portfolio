@@ -7,7 +7,7 @@ This responsive portfolio website was developed for the Grow with Google Front-E
 ## Features
 
 - This project was built with HTML, CSS and Javascript.
-- It uses the Intersection Observer API to lazy-load images and trigger animations when the target element intersects with the document's viewport.
+- It uses the Intersection Observer API to lazy-load images and trigger animations when a target element intersects with the document's viewport.
 
 ### Installation
 
