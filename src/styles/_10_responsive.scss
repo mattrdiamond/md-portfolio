@@ -53,7 +53,11 @@
   }
 }
 
-@media only screen and (max-width: 999px) {
+@media only screen and (max-width: 1200px) {
+  .header-title {
+    font-size: 3em;
+  }
+
   .header-text,
   .landing-text.loaded.out .header-text {
     margin: 15px 0 0px;
@@ -115,15 +119,15 @@
   .slide-up.delay2 {
     transition: all 0.5s;
   }
+
+  .header-title {
+    font-size: 2.8em;
+  }
 }
 
 @media only screen and (max-width: 750px) {
   .mission-text {
     font-size: 4.5vw;
-  }
-
-  .header-title {
-    font-size: 2.8em;
   }
 }
 
