@@ -1,6 +1,7 @@
 import { landingPage, landingText } from "./domElements";
 import { typewriter } from "./TypeWriter";
 
+const navHeight = 70 / window.innerHeight;
 let prevAmtScrolled = window.pageYOffset;
 
 // callback function to do animations
@@ -43,7 +44,7 @@ const headerAnimations = (entries, observer) => {
 
 // observer trigger points
 const landingOptions = {
-  threshold: [0.15, 0.8, 1]
+  threshold: [navHeight, 0.8, 1]
 };
 
 const observer = new IntersectionObserver(headerAnimations, landingOptions);
