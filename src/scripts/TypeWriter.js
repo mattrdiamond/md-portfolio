@@ -62,7 +62,7 @@ class TypeWriter {
 
   resetAnimation() {
     this.wordIndex = 0;
-    this.txt = "";
+    this.txt = "Developer";
     this.isDeleting = false;
   }
 

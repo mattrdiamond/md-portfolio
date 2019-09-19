@@ -98,11 +98,6 @@
   transition: transform 0.75s ease-out, opacity 1.5s ease-out, margin 0.5s ease;
 }
 
-/* line break */
-.header-break {
-  display: none;
-}
-
 .attributes-container {
   display: flex;
   align-items: center;
@@ -115,6 +110,7 @@
   width: 1px;
   height: 1em;
   background: #fff;
+  opacity: 0.5;
   margin-top: 0.09em;
   animation: blink 0.75s step-end infinite;
 }

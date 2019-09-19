@@ -202,6 +202,7 @@
 
   .header-title {
     letter-spacing: 8px;
+    padding-bottom: 15px;
   }
 
   .landing-text {
@@ -226,21 +227,25 @@
   }
 
   .attributes-container {
-    width: 5.7em;
+    width: unset;
   }
 
-  .header-text p:last-of-type {
+  .header-text {
     display: none;
   }
 
-  .header-break {
-    display: block;
+  .header-title {
+    font-size: 3.25em;
   }
 }
 
 @media only screen and (max-width: 550px) {
   .mission-text {
     font-size: 5.6vw;
+  }
+
+  .header-title {
+    font-size: 2.75em;
   }
 }
 
@@ -261,5 +266,9 @@
 
   .mission-text {
     font-size: 6vw;
+  }
+
+  .header-title {
+    font-size: 2.5em;
   }
 }
