@@ -9,21 +9,27 @@
 .mission-inner {
   background: rgba(67, 67, 67, 0.4);
   color: white;
-  text-transform: uppercase;
   text-align: center;
+  padding-top: 9%;
+  padding-bottom: 9%;
 }
 
 .mission-text {
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 3.9vw;
+  font-family: $body;
+  font-size: 2rem;
   font-weight: 600;
-  letter-spacing: 0.15em;
-  line-height: 1.3em;
+  letter-spacing: 2.5px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 3rem auto 0;
+  max-width: 975px;
 }
 
 .mission-title {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 300;
-  letter-spacing: 0.2em;
-  margin-bottom: 1.5em;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  margin: 0;
+  transition: font-size 0.3s;
 }

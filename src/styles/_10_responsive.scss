@@ -1,4 +1,4 @@
-@media only screen and (min-width: 1600px) {
+@media (min-width: 1600px) {
   .nav-links {
     font-size: 17px;
   }
@@ -8,13 +8,7 @@
   }
 }
 
-@media only screen and (min-width: 1200px) {
-  .mission-text {
-    font-size: 3em;
-  }
-}
-
-@media only screen and (min-width: 900px) {
+@media (min-width: 900px) {
   .nav-links {
     font-size: 16px;
     height: 100%;
@@ -53,7 +47,7 @@
   }
 }
 
-@media only screen and (max-width: 1200px) {
+@media (max-width: 1200px) {
   .header-title {
     font-size: 3em;
   }
@@ -62,15 +56,28 @@
   .landing-text.loaded.out .header-text {
     margin: 15px 0 0px;
   }
+
+  .mission-inner {
+    padding: 6.5rem 7%;
+  }
 }
 
-@media only screen and (max-width: 899px) {
+@media (max-width: 920px) {
+  .mission-text {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 899px) {
   .about,
   #work,
-  .mission-inner,
   #services,
   footer.pad-7 {
     padding: 3rem 6%;
+  }
+
+  .mission-inner {
+    padding: 6rem 6%;
   }
 
   .flex-grid-fourths {
@@ -125,13 +132,18 @@
   }
 }
 
-@media only screen and (max-width: 750px) {
+@media (max-width: 830px) {
+  .mission-title {
+    letter-spacing: 4.5px;
+  }
+
   .mission-text {
-    font-size: 4.5vw;
+    font-size: 1.675rem;
+    letter-spacing: 2.25px;
   }
 }
 
-@media only screen and (min-width: 700px) {
+@media (min-width: 700px) {
   footer {
     .section-title {
       margin-bottom: 0;
@@ -143,7 +155,7 @@
   }
 }
 
-@media only screen and (max-width: 699px) {
+@media (max-width: 699px) {
   footer .section-title {
     margin-bottom: 1em;
   }
@@ -163,7 +175,14 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 689px) {
+  .mission-text {
+    line-height: 1.7;
+    margin: 2.8rem auto 0;
+  }
+}
+
+@media (max-width: 600px) {
   .flex-grid-thirds .col {
     width: 100%;
     margin-top: 4em;
@@ -180,10 +199,6 @@
     &:nth-child(2) {
       margin-top: 4em;
     }
-  }
-
-  .mission-text {
-    font-size: 5.5vw;
   }
 
   .services-item {
@@ -243,9 +258,10 @@
   }
 }
 
-@media only screen and (max-width: 550px) {
+@media (max-width: 550px) {
   .mission-text {
-    font-size: 5.6vw;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
   }
 
   .header-title {
@@ -253,7 +269,22 @@
   }
 }
 
-@media only screen and (max-width: 450px) {
+@media (max-width: 460px) {
+  .mission-title {
+    letter-spacing: 3.5px;
+    font-size: 13px;
+  }
+
+  .mission-text {
+    font-size: 1.4rem;
+  }
+
+  .mission-inner {
+    padding: 5.5rem 6%;
+  }
+}
+
+@media (max-width: 450px) {
   .footer-logo {
     height: 50px;
     width: 50px;
@@ -266,10 +297,6 @@
 
   .footer-text > p {
     font-size: 0.7em;
-  }
-
-  .mission-text {
-    font-size: 6vw;
   }
 
   .header-title {
