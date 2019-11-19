@@ -14,7 +14,7 @@ footer {
   width: 100%;
   line-height: 0.8;
   border-bottom: 1px solid var(--mid-gray);
-  padding-bottom: 2em;
+  padding-bottom: 2rem;
 }
 
 .footer-logo {
@@ -54,9 +54,9 @@ footer {
   font-size: 13px;
   letter-spacing: 0.17em;
   color: var(--mid-gray2);
-  padding-top: 2em;
+  padding-top: 2rem;
   text-align: center;
-  font-family: "barlow condensed", sans-serif;
+  font-family: $display;
 }
 
 .linkedin {

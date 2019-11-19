@@ -6,6 +6,11 @@
   .nav-overlay {
     width: 450px;
   }
+
+  .mission-inner {
+    padding-top: 9rem;
+    padding-bottom: 9rem;
+  }
 }
 
 @media (min-width: 900px) {
@@ -59,6 +64,12 @@
 
   .mission-inner {
     padding: 6.5rem 7%;
+  }
+}
+
+@media (max-width: 1050px) {
+  .mission-text {
+    font-size: 2rem;
   }
 }
 

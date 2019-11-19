@@ -1,20 +1,11 @@
-:root {
-  --black: #333;
-  --dark-gray: #434343;
-  --mid-gray: #777;
-  --mid-gray2: #aaa;
-  --soft-white: #eee;
-  --yellow: #fb1;
-}
-
 html {
   font-size: 15px;
-  font-family: "Roboto", sans-serif;
+  font-family: $body;
 }
 
 body {
   font-size: 15px;
-  font-family: "Roboto", sans-serif;
+  font-family: $body;
   margin: 0;
   padding: 0;
   border: 0;
@@ -27,7 +18,7 @@ h1,
 h2,
 h3 {
   text-transform: uppercase;
-  font-family: "Barlow Condensed", sans-serif;
+  font-family: $display;
   color: var(--black);
 }
 

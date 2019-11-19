@@ -1,5 +1,13 @@
-import { landingPage, landingText } from "./domElements";
-import { typewriter } from "./TypeWriter";
+import TypeWriter from "./TypeWriter";
+import {
+  landingPage,
+  landingText,
+  landingAttributes,
+  words,
+  wait
+} from "./domElements";
+
+const typewriter = new TypeWriter(landingAttributes, words, wait, 250);
 
 const navHeight = 70 / window.innerHeight;
 let prevAmtScrolled = window.pageYOffset;
@@ -27,13 +35,11 @@ const headerAnimations = (entries, observer) => {
       if (!typewriter.isAnimating) {
         typewriter.stopAnimation();
         typewriter.resetAnimation();
-        typewriter.isAnimating = true;
         typewriter.type();
       }
     }
   } else if (!entries[0].isIntersecting) {
     landingText.classList.add("out");
-    // console.log("not instersecting", entries[0].intersectionRatio);
     if (typewriter.isAnimating) {
       typewriter.stopAnimation();
       typewriter.resetAnimation();

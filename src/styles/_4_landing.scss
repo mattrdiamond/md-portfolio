@@ -31,7 +31,7 @@
   font-size: 3.5em;
   letter-spacing: 6px;
   margin: 0;
-  font-family: "barlow condensed", sans-serif;
+  font-family: $display;
   display: flex;
   align-items: center;
   text-transform: uppercase;
@@ -40,11 +40,6 @@
   width: 100%;
   justify-content: center;
 }
-
-// .header-name,
-// .attributes-container {
-//   transition: transform 1s ease, opacity 1s ease;
-// }
 
 .header-name,
 .landing-text.loaded.out .header-name {
@@ -86,7 +81,6 @@
   color: #b3b3b3;
   text-align: center;
   transform: translateY(100px);
-  // transition: transform 0.75s ease-out, opacity 1.5s ease-out, margin 0.5s ease;
   transition-delay: 0s;
   opacity: 0;
 }
@@ -104,8 +98,9 @@
   width: 5.3em;
 }
 
-#cursor {
+.cursor {
   visibility: hidden;
+  display: inline-block;
   vertical-align: middle;
   width: 1px;
   height: 1em;
