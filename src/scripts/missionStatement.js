@@ -5,7 +5,7 @@ const missionTypewriter = new TypeWriter(
   missionTitle,
   ["Mission Statement"],
   3000,
-  150
+  130
 );
 
 const missionAnimation = (entries, observer) => {

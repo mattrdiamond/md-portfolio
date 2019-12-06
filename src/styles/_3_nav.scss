@@ -1,11 +1,32 @@
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.1s, height 0.35s;
+  overflow: hidden;
+  height: 0%;
+
+  &.visible {
+    opacity: 0.93;
+    height: 100%;
+    background: #555;
+
+    .nav-links {
+      font-size: 40px;
+    }
+  }
+}
+
 .nav-links {
   position: relative;
   height: 100%;
-  font-size: 40px;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 3.2px;
   font-family: $display;
+  font-size: 16px;
 }
 
 .nav-bar {
@@ -136,23 +157,6 @@
   position: relative;
   height: 100%;
   padding: 0;
-}
-
-.nav-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  opacity: 0;
-  transition: opacity 0.1s, height 0.35s;
-  overflow: hidden;
-  height: 0%;
-
-  &.visible {
-    opacity: 0.93;
-    height: 100%;
-    background: #555;
-  }
 }
 
 @keyframes fadeIn {
