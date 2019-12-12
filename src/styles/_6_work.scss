@@ -1,3 +1,11 @@
+.work-item img:hover {
+  transform: scale(1.05);
+  transition: transform 0.5s;
+}
+.img-wrapper {
+  overflow: hidden;
+}
+
 .button {
   padding: 15px;
   font-weight: 500;
@@ -48,23 +56,35 @@
 
 .slide-up {
   opacity: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   transition: transform 0.5s ease, opacity 0.5s ease;
   transform: translateY(30%);
 
   &.active {
     transform: translateY(0%);
     opacity: 1;
+    &.finished {
+      transition-delay: 0s;
+    }
   }
+}
 
-  &.delay1 {
-    transition-delay: 0.25s;
+/* delay 1 */
+.grid-thirds .work-item:nth-of-type(2) .slide-up,
+.grid-thirds .work-item:nth-of-type(5) .slide-up {
+  transition-delay: 0.25s;
+  &.finished {
+    transition-delay: 0s;
   }
+}
 
-  &.delay2 {
-    transition-delay: 0.5s;
-  }
-
-  &.delay3 {
-    transition-delay: 0.75s;
+/* delay 2 */
+.grid-thirds .work-item:nth-of-type(3) .slide-up,
+.grid-thirds .work-item:nth-of-type(6) .slide-up {
+  transition-delay: 0.5s;
+  &.finished {
+    transition-delay: 0s;
   }
 }
