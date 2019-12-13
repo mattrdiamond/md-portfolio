@@ -15,7 +15,11 @@ function navLinkClick(e) {
 function smoothScroll(event) {
   event.preventDefault();
   const targetId = event.currentTarget.getAttribute("href");
-  const targetPosition = document.querySelector(targetId).offsetTop - 70;
+  const navBarHeight = 70;
+  const targetPosition =
+    targetId !== "#about"
+      ? document.querySelector(targetId).offsetTop - navBarHeight
+      : document.querySelector(targetId).offsetTop - navBarHeight / 2;
   const startPosition = window.pageYOffset;
   const distance = targetPosition - startPosition;
   const duration = 1000;

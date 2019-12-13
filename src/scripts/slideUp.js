@@ -5,7 +5,6 @@ import { slideUpImg } from "./domElements";
 const slideUp = (entries, observer) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      console.log("entry", entry.target.parentElement.parentElement.nodeName);
       const img = entry.target; // image that has intersected w/ viewport
       const src = img.getAttribute("data-lazy");
       const parent = entry.target.parentElement;
