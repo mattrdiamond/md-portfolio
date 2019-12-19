@@ -9,23 +9,30 @@ const slideUp = (entries, observer) => {
 
       console.log(entry.target.dataset.lazy, entry.intersectionRatio);
 
+      // lazy load
       if (src) {
         img.setAttribute("src", src);
         img.srcset = img.dataset.srcset;
       }
 
+      // slide up
       img.classList.add("active");
 
+      // add class to change transition timing
       if (parent.className === "work-img") {
         setTimeout(() => img.classList.add("finished"), 500);
       }
-      observer.disconnect(); // dispose of observer once loaded
+
+      // dispose of observer once loaded
+      if (entry.intersectionRatio > 0.5) {
+        observer.disconnect();
+      }
     }
   });
 };
 
 const options = {
-  threshold: 0.5
+  threshold: [0, 0.75]
 };
 
 // Call slideUp callback when intersectionRatio meets threshold
