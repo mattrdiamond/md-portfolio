@@ -1,7 +1,5 @@
 import { slideUpImg } from "./domElements";
 
-// entries: describes intersection between target and root container
-// observer: interface used to manage instance of this observer
 const slideUp = (entries, observer) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -9,8 +7,11 @@ const slideUp = (entries, observer) => {
       const src = img.getAttribute("data-lazy");
       const parent = entry.target.parentElement;
 
+      console.log(entry.target.dataset.lazy, entry.intersectionRatio);
+
       if (src) {
         img.setAttribute("src", src);
+        img.srcset = img.dataset.srcset;
       }
 
       img.classList.add("active");
