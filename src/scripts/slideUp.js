@@ -1,44 +1,62 @@
 import { slideUpImg } from "./domElements";
 
+const preloadImage = img => {
+  const lazyImg = img.getAttribute("data-lazy");
+
+  if (!lazyImg || !img.src.includes("placeholder")) {
+    return;
+  }
+  console.log("lazy load", img.dataset.lazy);
+  img.setAttribute("src", lazyImg);
+  img.srcset = img.dataset.srcset;
+};
+
 const slideUp = (entries, observer) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      const img = entry.target; // image that has intersected w/ viewport
-      const src = img.getAttribute("data-lazy");
+      const img = entry.target;
       const parent = entry.target.parentElement;
+      const grandparent = entry.target.parentElement.parentElement;
 
       console.log(entry.target.dataset.lazy, entry.intersectionRatio);
 
-      // lazy load
-      if (src) {
-        img.setAttribute("src", src);
-        img.srcset = img.dataset.srcset;
-      }
+      preloadImage(img);
 
-      // slide up
-      img.classList.add("active");
-
-      // add class to change transition timing
-      if (parent.className === "work-img") {
-        setTimeout(() => img.classList.add("finished"), 500);
-      }
-
-      // dispose of observer once loaded
       if (entry.intersectionRatio > 0.5) {
-        observer.disconnect();
+        console.log("activate");
+
+        // slide up image
+        img.classList.add("active");
+
+        // change transition timing/overflow hidden after animation (work section only)
+        if (parent.className === "work-img") {
+          setTimeout(() => {
+            img.classList.add("finished");
+            grandparent.classList.add("overflow");
+          }, 500);
+        }
+
+        // stop observing image
+        observer.unobserve(img);
       }
     }
   });
 };
 
+// const options = {
+//   threshold: [0, 0.5]
+// };
+
+// rootMargin: extend observer's top bounds by 75px (trigger early to start preloading)
 const options = {
-  threshold: [0, 0.75]
+  threshold: [0, 1],
+  rootMargin: "0px 0px 75px 0px"
 };
 
-// Call slideUp callback when intersectionRatio meets threshold
-const lazyLoad = target => {
-  const observer = new IntersectionObserver(slideUp, options);
-  observer.observe(target);
-};
+const observer = new IntersectionObserver(slideUp, options);
 
-slideUpImg.forEach(lazyLoad);
+window.addEventListener("load", () => {
+  slideUpImg.forEach(image => {
+    observer.observe(image);
+  });
+});
