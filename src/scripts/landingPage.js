@@ -54,8 +54,8 @@ const landingOptions = {
 };
 
 const observer = new IntersectionObserver(headerAnimations, landingOptions);
-observer.observe(landingPage);
 
 window.addEventListener("load", () => {
   landingText.classList.add("loaded");
+  observer.observe(landingPage);
 });

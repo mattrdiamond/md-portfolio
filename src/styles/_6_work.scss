@@ -1,9 +1,25 @@
-.work-item img:hover {
-  transform: scale(1.05);
-  transition: transform 0.5s;
-}
+// .work-item img:hover {
+//   transform: scale(1.05);
+//   transition: transform 0.5s;
+// }
+
+// .img-wrapper {
+//   overflow: hidden;
+// }
+
 .img-wrapper {
-  overflow: hidden;
+  &.overflow {
+    overflow: hidden;
+
+    .slide-up:hover {
+      transform: scale(1.05);
+      transition: transform 0.5s;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
 }
 
 .button {
