@@ -28,12 +28,16 @@ const slideUp = (entries, observer) => {
         // slide up image
         img.classList.add("active");
 
+        // Total slideUp animation time (ms) = transition delay + .5s slide-up animation || Default = 500
+        const delay =
+          parseFloat(getComputedStyle(img).transitionDelay) * 1000 + 500 || 500;
+
         // change transition timing/overflow hidden after animation (work section only)
         if (parent.className === "work-img") {
           setTimeout(() => {
             img.classList.add("finished");
             grandparent.classList.add("overflow");
-          }, 500);
+          }, delay);
         }
 
         // stop observing image
@@ -50,7 +54,7 @@ const slideUp = (entries, observer) => {
 // rootMargin: extend observer's top bounds by 75px (trigger early to start preloading)
 const options = {
   threshold: [0, 1],
-  rootMargin: "0px 0px 75px 0px"
+  rootMargin: "0px 0px 70px 0px"
 };
 
 const observer = new IntersectionObserver(slideUp, options);
