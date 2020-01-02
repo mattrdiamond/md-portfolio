@@ -44,3 +44,20 @@ window.addEventListener("load", () => {
     observer.observe(image);
   });
 });
+
+// ****************************************
+
+const getMeasurements = () => {
+  const vw = window.innerWidth;
+  const density = window.devicePixelRatio;
+  document.getElementById("vWidth").textContent = vw + "px";
+  document.getElementById("pDensity").textContent = density;
+  document.getElementById("totalPx").textContent = vw * density + "px";
+};
+
+document.addEventListener("DOMContentLoaded", function() {
+  getMeasurements();
+});
+
+window.onresize = getMeasurements;
+// ****************************************

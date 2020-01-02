@@ -81,10 +81,20 @@
       <!-- <div class="loader-container">
         <div class="loader-overlay" id="load-screen">loading</div>
       </!-->
-      <div class="img-container">
+      <!-- <div class="img-container">
         <div class="landing-img"></div>
-      </div>
+      </div> -->
       <div class="landing-page">
+        <div class="image-wrapper">
+          <img
+            src="src/img/test/landing_test_small.jpg"
+            data-src="src/img/test/landing_test_small.jpg"
+            data-srcset="src/img/test/landing_test_small.jpg 1x, src/img/test/landing_test_2x.jpg 2x"
+            alt=""
+            class="landing-img blur"
+            id="landing-img"
+          />
+        </div>
         <div id="landing-text" class="landing-text">
           <div class="header-title">
             <span id="header-name" class="header-name">MATT DIAMOND</span>
@@ -140,6 +150,13 @@
       </section>
       <!-- end about section -->
       <!-- start work section -->
+      <!-- ******************************************** -->
+      <div class="temp">
+        <p>Viewport width: <span id="vWidth"></span></p>
+        <p>Pixel Density: <span id="pDensity"></span></p>
+        <span>Actual pixels: <span id="totalPx"></span></span>
+      </div>
+      <!-- ******************************************** -->
       <section class="pad-7" id="work">
         <div class="content-inner-wrapper">
           <h2 class="section-title">work</h2>
@@ -151,12 +168,35 @@
                   target="_blank"
                   class="work-img"
                 >
-                  <img
+                  <picture>
+                    <source
+                      media="(min-width: 1101px)"
+                      sizes="calc((86vw - 90px) / 3)"
+                      srcset="
+                        https://dummyimage.com/350x400/f2c257/fff.png 350w,
+                        https://dummyimage.com/450x400/769c61/fff.png 450w,
+                        https://dummyimage.com/700x400/f2c257/fff.png 700w,
+                        https://dummyimage.com/900x400/769c61/fff.png 900w
+                      "
+                    />
+                    <img
+                      class="slide-up"
+                      src="https://dummyimage.com/360x400/89b65a/fff.png"
+                      alt="responsive image"
+                      sizes="100vw"
+                      srcset="
+                        https://dummyimage.com/400x400/808285/fff.png   400w,
+                        https://dummyimage.com/700x400/f2863a/fff.png   700w,
+                        https://dummyimage.com/1000x400/7facab/fff.png 1000w
+                      "
+                    />
+                  </picture>
+                  <!-- <img
                     class="slide-up"
                     data-lazy="src/img/loop1x.jpg"
                     srcset="src/img/loop1x.jpg 1x, src/img/loop2x.jpg 2x"
                     alt="The Loop: City Guide"
-                  />
+                  /> -->
                 </a>
               </div>
               <h3 class="work-title">

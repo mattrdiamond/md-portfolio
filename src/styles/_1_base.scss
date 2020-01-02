@@ -12,6 +12,10 @@ body {
   font-size: 100%;
   color: var(--mid-gray);
   letter-spacing: 0.03em;
+
+  // &.preload * {
+  //   transition: none !important;
+  // }
 }
 
 h1,
