@@ -60,31 +60,24 @@ window.addEventListener("load", () => {
   observer.observe(landingPage);
 });
 
-// ***********************************************************
-// import imageSrc from "../img/test/landing_test_2x.jpg";
+// ***********************************************
+// Test: Progressive image loading
+// ***********************************************
 
 const landingImage = document.getElementById("landing-img");
+const placeholder = document.getElementById("placeholder");
 const bigImage = document.createElement("img");
 
-// // swap landingImage with bigImage
+// 1) after 50ms set src and srcset for bigImage ()
+setTimeout(function() {
+  bigImage.src = landingImage.dataset.src;
+  bigImage.srcset = landingImage.dataset.srcset;
+}, 50);
+
+// 2) swap landingImage with bigImage
 bigImage.onload = function() {
   landingImage.src = this.src;
   landingImage.srcset = this.srcset;
-  landingImage.classList.remove("blur");
-  landingImage.classList.add("noblur");
+  landingImage.classList.add("loaded");
+  placeholder.classList.add("fade");
 };
-
-// loadImage = (img) => {
-//   const
-//   img.setAttribute("src", lazyImg);
-//   img.srcset = img.dataset.srcset;
-// }
-
-// after 50ms set src and srcset for bigImage
-setTimeout(function() {
-  // bigImage.src = imageSrc;
-  bigImage.src = landingImage.dataset.src;
-  bigImage.srcset = landingImage.dataset.srcset;
-  // bigImage.setAttribute("srcset", landingImage.dataset.srcset);
-  console.log("test", landingImage.dataset.srcset);
-}, 50);
