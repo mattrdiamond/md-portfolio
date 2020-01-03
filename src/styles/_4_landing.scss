@@ -156,12 +156,13 @@
 }
 
 .noblur {
-  transition: filter 1s, transform 0.5s;
+  transition: filter 1s, transform 0.25s;
+  // transition: filter 0.2s;
 }
 
 .blur {
   filter: blur(10px);
-  transform: scale(1.05);
+  transform: scasle(1.05);
 }
 // @media (max-width: 900px) {
 //   .landing-page:before {

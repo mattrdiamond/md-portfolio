@@ -56,28 +56,20 @@ const landingOptions = {
 const observer = new IntersectionObserver(headerAnimations, landingOptions);
 
 window.addEventListener("load", () => {
-  // remove temporary preload class to prevent transitions firing on page load
-  // document.querySelector(".preload").classList.remove("preload");
   landingText.classList.add("loaded");
   observer.observe(landingPage);
-  console.log("loaded");
 });
 
-// load in landing text after small delay to create animation
-// setTimeout(function() {
-//   landingText.classList.add("loaded");
-//   observer.observe(landingPage);
-// }, 50);
-
 // ***********************************************************
-import imageSrc from "../img/test/landing_test_2x.jpg";
-// console.log("img", imageSrc);
+// import imageSrc from "../img/test/landing_test_2x.jpg";
+
 const landingImage = document.getElementById("landing-img");
 const bigImage = document.createElement("img");
 
-// // overrite image with bigImage
+// // swap landingImage with bigImage
 bigImage.onload = function() {
   landingImage.src = this.src;
+  landingImage.srcset = this.srcset;
   landingImage.classList.remove("blur");
   landingImage.classList.add("noblur");
 };
@@ -88,10 +80,11 @@ bigImage.onload = function() {
 //   img.srcset = img.dataset.srcset;
 // }
 
+// after 50ms set src and srcset for bigImage
 setTimeout(function() {
   // bigImage.src = imageSrc;
   bigImage.src = landingImage.dataset.src;
   bigImage.srcset = landingImage.dataset.srcset;
-  bigImage.setAttribute("srcset", landingImage.dataset.srcset);
+  // bigImage.setAttribute("srcset", landingImage.dataset.srcset);
   console.log("test", landingImage.dataset.srcset);
 }, 50);
