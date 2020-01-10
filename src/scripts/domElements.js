@@ -1,6 +1,7 @@
 export const navButton = document.getElementById("nav-button");
 export const navOverlay = document.getElementById("nav-overlay");
 export const navLinks = document.querySelectorAll(".nav-bar a");
+export const navBar = document.querySelector(".nav-background");
 export const headerArrow = document.querySelector(".header-arrow");
 export const slideUpImg = document.querySelectorAll(".slide-up");
 export const landingPage = document.getElementById("home");

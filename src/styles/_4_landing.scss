@@ -6,15 +6,15 @@
   justify-content: center;
   align-items: center;
 
-  &:before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    // background: url("../img/header_bkd2x.jpg") 50% 50% / cover no-repeat fixed;
-    // background: url("../img/test/Landing_Bkd_2x.jpg") 50% 50% / cover no-repeat
-    //   fixed;
-  }
+  // &:before {
+  //   content: "";
+  //   position: absolute;
+  //   width: 100%;
+  //   height: 100%;
+  //   // background: url("../img/header_bkd2x.jpg") 50% 50% / cover no-repeat fixed;
+  //   // background: url("../img/test/Landing_Bkd_2x.jpg") 50% 50% / cover no-repeat
+  //   //   fixed;
+  // }
 }
 
 .landing-text {
@@ -31,16 +31,20 @@
 
 .header-title {
   font-size: 3.5rem;
-  letter-spacing: 6px;
+  letter-spacing: 7px;
   margin: 0;
   font-family: $display;
   display: flex;
   align-items: center;
   text-transform: uppercase;
-  transition: font-size 0.5s ease;
+  transition: font-size 0.5s, letter-spacing 0.5s;
   overflow-x: hidden;
   width: 100%;
   justify-content: center;
+}
+
+.header-text p {
+  transition: font-size 0.5s ease;
 }
 
 .header-name,
@@ -154,7 +158,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  transform: scale(1.05);
+  // transform: scale(1.05);
   // opacity: 0.7;
   // transform: scale(1.05);
   // transition: filter 4s, transform 4s;
@@ -176,6 +180,10 @@
   }
 }
 
+.opaque {
+  opacity: 0.4;
+  object-fit: none;
+}
 // .placeholder {
 //   // opacity: 0;
 //   filter: blur(13px);

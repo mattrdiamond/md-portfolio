@@ -49,10 +49,13 @@ window.addEventListener("load", () => {
 
 const getMeasurements = () => {
   const vw = window.innerWidth;
+  const vh = window.innerHeight;
   const density = window.devicePixelRatio;
   document.getElementById("vWidth").textContent = vw + "px";
+  document.getElementById("vHeight").textContent = vh + "px";
   document.getElementById("pDensity").textContent = density;
-  document.getElementById("totalPx").textContent = vw * density + "px";
+  document.getElementById("totalW").textContent = vw * density + "px";
+  document.getElementById("totalH").textContent = vh * density + "px";
 };
 
 document.addEventListener("DOMContentLoaded", function() {

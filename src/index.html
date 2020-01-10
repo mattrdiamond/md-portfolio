@@ -78,26 +78,89 @@
       <!-- <div class="loader-container">
         <div class="loader-overlay" id="load-screen">loading</div>
       </!-->
-      <!-- <div class="img-container">
-        <div class="landing-img"></div>
-      </div> -->
+
       <div class="landing-page">
-        <div class="image-wrapper">
+        <!-- <img
+          src="src/img/test/landing_test_2x.jpg"
+          alt="La Salle Street Bridge"
+          class="img-cover"
+          id="landing-img"
+        /> -->
+        <picture>
+          <!-- mobile portrait -->
+          <source
+            media="(max-width: 550px)"
+            sizes="100vw"
+            srcset="
+              src/img/header/header_mobile_portrait@550.jpg   550w,
+              src/img/header/header_mobile_portrait@1100.jpg 1100w,
+              src/img/header/header_mobile_portrait@1650.jpg 1650w
+            "
+          />
+          <!-- tablet portrait -->
+          <source
+            media="(min-width: 551px) and (max-width: 900px) and (min-height: 1024px) and (max-height: 1200px)"
+            sizes="100vw"
+            srcset="
+              src/img/header/header_tablet_portrait@900.jpg   900w,
+              src/img/header/header_tablet_portrait@1800.jpg 1800w
+            "
+          />
+          <!-- <source
+            media="(min-width: 551px) and (max-width: 900px) and (orientation: portrait)"
+            sizes="100vw"
+            srcset="
+              src/img/header/header_tablet_portrait@900.jpg   900w,
+              src/img/header/header_tablet_portrait@1800.jpg 1800w
+            "
+          /> -->
+
+          <!-- desktops (maintain aspect ratio, smaller image)-->
+          <!-- 13" desktop -->
+          <source
+            media="(min-width: 550px) and (max-width: 1200px) and (max-height: 717px)"
+            srcset="
+              src/img/header/header@1200.jpg 1x
+              src/img/header/header@2400.jpg 2x,
+            "
+          />
+          <!-- 15" desktop -->
+          <source
+            media="(min-width: 550px) and (max-width: 1500px) and (max-height: 896px)"
+            srcset="
+              src/img/header/header@1500.jpg 1x,
+              src/img/header/header@3000.jpg 2x
+            "
+          />
+          <!-- big screens -->
+          <source
+            media="(min-width: 1501px), (min-height: 897px)"
+            sizes="100vw"
+            srcset="
+              src/img/test/wide.jpg
+            "
+          />
+
+          <!-- wide test -->
+          <!-- <source
+            media="(min-width: 550px) and (max-width: 1500px) and (max-height: 896px)"
+            srcset="src/img/test/wide.jpg"
+          /> -->
+
           <img
-            data-src="src/img/test/landing_test_small.jpg"
-            data-srcset="src/img/test/landing_test_small.jpg 1x, src/img/test/landing_test_2x.jpg 2x"
-            alt="La Salle Street Bridge"
+            src="src/img/test/Landing_600.jpg"
+            alt="responsive image"
             class="img-cover"
-            id="landing-img"
+            sizes="100vh"
+            srcset="
+              src/img/header/header@1200.jpg     1200w,
+              src/img/test/Landing_2000_test.jpg 2000w,
+              src/img/test/Landing_2800.jpg      2800w
+            "
           />
-          <img
-            src="src/img/test/landing_test_small.jpg"
-            alt="placeholder"
-            id="placeholder"
-            class="img-cover blur"
-          />
-        </div>
-        <div id="landing-text" class="landing-text">
+        </picture>
+
+        <div id="landing-text" class="landing-text out">
           <div class="header-title">
             <span id="header-name" class="header-name">MATT DIAMOND</span>
             <span class="yellow backslash">/</span>
@@ -155,8 +218,10 @@
       <!-- ******************************************** -->
       <div class="temp">
         <p>Viewport width: <span id="vWidth"></span></p>
+        <p>Viewport height: <span id="vHeight"></span></p>
         <p>Pixel Density: <span id="pDensity"></span></p>
-        <span>Actual pixels: <span id="totalPx"></span></span>
+        <p>Actual width: <span id="totalW"></span></p>
+        <p>Actual height: <span id="totalH"></span></p>
       </div>
       <!-- ******************************************** -->
       <section class="pad-7" id="work">
