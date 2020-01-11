@@ -9,7 +9,6 @@ import {
 } from "./domElements";
 
 const typewriter = new TypeWriter(landingAttributes, words, wait, 250);
-
 const navHeight = 70 / window.innerHeight;
 let prevAmtScrolled;
 
@@ -17,8 +16,7 @@ const getScroll = () => {
   if (!prevAmtScrolled) {
     return "match";
   } else {
-    let test = window.pageYOffset > prevAmtScrolled ? "down" : "up";
-    return test;
+    return window.pageYOffset > prevAmtScrolled ? "down" : "up";
   }
 };
 
@@ -51,8 +49,9 @@ const headerAnimations = (entries, observer) => {
     prevAmtScrolled = null;
     return;
   }
-  // else if (entry.isIntersecting) {
-  navBar.classList.add("hidden");
+
+  // 1) first threshold (navHeight)
+  // if ratio < 0.3 && scrollDirection = up -> hide navbar + return (don't need to do that with higher thresholds)
 
   // 2) second threshold (0.8)
   if (ratio <= 0.8 && scrollDirection === "down") {
@@ -60,8 +59,7 @@ const headerAnimations = (entries, observer) => {
     if (typewriter.isAnimating) {
       typewriter.stopAnimation();
     }
-  }
-  if ((ratio > 0.3 && scrollDirection === "up") || ratio > 0.8) {
+  } else if ((ratio > 0.3 && scrollDirection === "up") || ratio > 0.8) {
     landingText.classList.remove("out");
     if (!typewriter.isAnimating) {
       typewriter.stopAnimation();
@@ -70,6 +68,7 @@ const headerAnimations = (entries, observer) => {
     }
   }
 
+  navBar.classList.add("hidden");
   prevAmtScrolled = window.pageYOffset;
 };
 
