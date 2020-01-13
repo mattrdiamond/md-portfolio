@@ -14,60 +14,52 @@ let prevAmtScrolled;
 
 const getScroll = () => {
   if (!prevAmtScrolled) {
-    return "match";
+    return "reset";
   } else {
-    return window.pageYOffset > prevAmtScrolled ? "down" : "up";
+    return window.pageYOffset >= prevAmtScrolled ? "down" : "up";
   }
 };
 
 // callback function to do animations
 const headerAnimations = (entries, observer) => {
-  // debugger;
   const entry = entries[0];
   const ratio = entry.intersectionRatio;
   let scrollDirection = getScroll();
 
-  let state = {
-    ratio: ratio,
-    offset: window.pageYOffset,
-    prev: prevAmtScrolled,
-    direction: scrollDirection,
-    nav: navHeight
-  };
+  // let state = {
+  //   ratio: ratio,
+  //   offset: window.pageYOffset,
+  //   prev: prevAmtScrolled,
+  //   direction: scrollDirection,
+  //   nav: navHeight,
+  //   landing: landingPage.offsetHeight
+  // };
+  // console.log("state", state);
 
-  console.log("state", state);
+  switch (true) {
+    case !entry.isIntersecting:
+    case ratio < 0.3 && scrollDirection === "down": // firefox fallback
+    case !prevAmtScrolled && ratio < navHeight: // firefox fallback
+      navBar.classList.remove("hidden");
+      prevAmtScrolled = landingPage.offsetHeight; // ensure scrollDirection = up for next intersection
+      return;
 
-  // chrome & safari: isIntersecting is FALSE when exiting viewport (when threshold[0] is triggered)
-  // firefox: isIntersecting is TRUE when exiting viewport
-  if (
-    !entry.isIntersecting ||
-    (ratio < 0.3 && scrollDirection === "down") ||
-    (!prevAmtScrolled && ratio < navHeight)
-  ) {
-    navBar.classList.remove("hidden");
-    // reset prevAmtScrolled when no longer intersecting
-    prevAmtScrolled = null;
-    return;
+    case ratio <= 0.8 && scrollDirection === "down":
+      if (typewriter.isAnimating) {
+        typewriter.stopAnimation();
+      }
+      landingText.classList.add("out");
+      break;
+
+    case ratio > 0.3 && scrollDirection === "up":
+    case ratio > 0.8:
+      landingText.classList.remove("out");
+      if (!typewriter.isAnimating) {
+        typewriter.resetAnimation();
+        typewriter.type();
+      }
+      break;
   }
-
-  // 1) first threshold (navHeight)
-  // if ratio < 0.3 && scrollDirection = up -> hide navbar + return (don't need to do that with higher thresholds)
-
-  // 2) second threshold (0.8)
-  if (ratio <= 0.8 && scrollDirection === "down") {
-    landingText.classList.add("out");
-    if (typewriter.isAnimating) {
-      typewriter.stopAnimation();
-    }
-  } else if ((ratio > 0.3 && scrollDirection === "up") || ratio > 0.8) {
-    landingText.classList.remove("out");
-    if (!typewriter.isAnimating) {
-      typewriter.stopAnimation();
-      typewriter.resetAnimation();
-      typewriter.type();
-    }
-  }
-
   navBar.classList.add("hidden");
   prevAmtScrolled = window.pageYOffset;
 };
@@ -84,6 +76,11 @@ window.addEventListener("load", () => {
   observer.observe(landingPage);
   console.log("loaded");
 });
+
+/* Note:
+ * Chrome/Safari: entry.isIntersecting is FALSE when entry exits viewport (when threshold[0] is triggered)
+ * firefox: isIntersecting is TRUE when exiting viewport
+ */
 
 // ***********************************************
 // Test: Progressive image loading
