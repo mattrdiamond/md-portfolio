@@ -1,13 +1,23 @@
 .mission-container {
-  background: url("../img/mission_bkd.jpg") fixed;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  // 1) fallback option for browsers that don’t support the image-set attribute. This must come first
+  background: url("../img/mission_bkd.jpg");
+  // 2) image-set: serve webP to supported browsers and png fallback for others
+  background-image: -webkit-image-set(
+    url("https://dummyimage.com/1440x900/7facab/fff.webp") 1x,
+    url("https://dummyimage.com/2880x1800/7facab/fff.webp") 2x
+  );
+  background-image: image-set(
+    url("https://dummyimage.com/1440x900/7facab/fff.png") 1x,
+    url("https://dummyimage.com/2880x1800/7facab/fff.png") 2x
+  );
 }
 
 .mission-inner {
-  background: rgba(67, 67, 67, 0.4);
+  background: #43434366;
   color: white;
   text-align: center;
   padding-top: 9%;
