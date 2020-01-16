@@ -39,11 +39,13 @@ const options = {
 
 const observer = new IntersectionObserver(slideUp, options);
 
-window.addEventListener("load", () => {
+const observe = () => {
   slideUpImg.forEach(image => {
     observer.observe(image);
   });
-});
+};
+
+window.addEventListener("load", observe);
 
 // ****************************************
 
