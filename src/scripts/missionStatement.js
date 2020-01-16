@@ -28,19 +28,17 @@ const lazyLoad = () => {
 
 const missionAnimation = (entries, observer) => {
   const entry = entries[0];
+  console.log("ratio", entry.intersectionRatio);
+  // debugger;
 
-  switch (true) {
-    case !entry.isIntersecting:
-      return;
-
-    case entry.intersectionRatio < 1 && loaded === false:
-      lazyLoad();
-      break;
-
-    case entry.intersectionRatio === 1:
-      missionTypewriter.type();
-      observer.disconnect();
-      break;
+  if (!entry.isIntersecting) {
+    return;
+  } else if (!loaded) {
+    lazyLoad();
+  }
+  if (entry.intersectionRatio === 1) {
+    missionTypewriter.type();
+    observer.disconnect();
   }
 };
 
