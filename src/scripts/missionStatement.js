@@ -8,30 +8,17 @@ const missionTypewriter = new TypeWriter(
   130
 );
 
-const missionAnimation = (entries, observer) => {
-  if (entries[0].intersectionRatio > 0) {
-    console.log("intersect");
-    missionTypewriter.type();
-    observer.disconnect();
-  }
-};
+let loaded = false;
 
-const missionOptions = {
-  threshold: 0.65
-};
+const lazyLoad = () => {
+  loaded = true;
 
-const observer = new IntersectionObserver(missionAnimation, missionOptions);
-observer.observe(missionSection);
-
-//***********************************defer test */
-
-const deferImg = () => {
   // 1) create image which will be held in browser cache
-  var img = document.createElement("img");
+  const img = document.createElement("img");
   img.src = "src/img/mission_bkd.jpg";
 
   // 2) when image loaded, update CSS custom properties which are linked
-  // to the background image (pseudo elements can't be edited directly)
+  // to the background image (used to animate opacity)
   img.onload = () => {
     let root = document.documentElement;
     root.style.setProperty("--mission-bkd", `url("src/img/mission_bkd.jpg")`);
@@ -39,4 +26,52 @@ const deferImg = () => {
   };
 };
 
-window.addEventListener("load", deferImg());
+const missionAnimation = (entries, observer) => {
+  const entry = entries[0];
+
+  switch (true) {
+    case !entry.isIntersecting:
+      return;
+
+    case entry.intersectionRatio < 1 && loaded === false:
+      lazyLoad();
+      break;
+
+    case entry.intersectionRatio === 1:
+      missionTypewriter.type();
+      observer.disconnect();
+      break;
+  }
+};
+
+// extend observer's top bounds to start preloading early
+const topBounds = window.innerWidth < 901 ? "170px" : "130px";
+
+const missionOptions = {
+  threshold: [0, 1],
+  rootMargin: `0px 0px ${topBounds} 0px`
+};
+
+const observer = new IntersectionObserver(missionAnimation, missionOptions);
+
+window.addEventListener("load", () => {
+  observer.observe(missionSection);
+});
+
+//***********************************defer test */
+
+// const deferImg = () => {
+//   // 1) create image which will be held in browser cache
+//   const img = document.createElement("img");
+//   img.src = "src/img/mission_bkd.jpg";
+
+//   // 2) when image loaded, update CSS custom properties which are linked
+//   // to the background image (pseudo elements can't be edited directly)
+//   img.onload = () => {
+//     let root = document.documentElement;
+//     root.style.setProperty("--mission-bkd", `url("src/img/mission_bkd.jpg")`);
+//     root.style.setProperty("--mission-opacity", 1);
+//   };
+// };
+
+// window.addEventListener("load", deferImg());
