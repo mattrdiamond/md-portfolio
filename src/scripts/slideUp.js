@@ -1,13 +1,14 @@
 import { slideUpImg } from "./domElements";
 
 const preloadImage = img => {
-  const lazyImg = img.getAttribute("data-lazy");
+  const lazyImg = img.getAttribute("data-src");
 
-  if (!lazyImg || !img.src.includes("placeholder")) {
+  // if (!lazyImg || !img.src.includes("placeholder")) {
+  if (!lazyImg) {
     return;
   }
-  console.log("lazy load", img.dataset.lazy);
-  img.setAttribute("src", lazyImg);
+
+  img.src = img.dataset.src;
   img.srcset = img.dataset.srcset;
 };
 
@@ -15,8 +16,8 @@ const slideUp = (entries, observer) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const img = entry.target;
-      const parent = entry.target.parentElement;
-      const grandparent = entry.target.parentElement.parentElement;
+      const parent = img.parentElement;
+      const grandparent = parent.parentElement;
 
       console.log(entry.target.dataset.lazy, entry.intersectionRatio);
 
@@ -51,10 +52,10 @@ const slideUp = (entries, observer) => {
 //   threshold: [0, 0.5]
 // };
 
-// rootMargin: extend observer's top bounds by 75px (trigger early to start preloading)
+// rootMargin: extend observer's top bounds (trigger early to start preloading)
 const options = {
   threshold: [0, 1],
-  rootMargin: "0px 0px 70px 0px"
+  rootMargin: "0px 0px 50px 0px"
 };
 
 const observer = new IntersectionObserver(slideUp, options);
