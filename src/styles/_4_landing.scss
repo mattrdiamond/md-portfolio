@@ -140,15 +140,15 @@
 }
 
 // **********************************************************
-.image-wrapper {
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--dark-gray);
-}
+// .image-wrapper {
+//   overflow: hidden;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background: var(--dark-gray);
+// }
 .img-cover {
   // position: absolute;
   // top: 0;
@@ -163,27 +163,28 @@
   // transform: scale(1.05);
   // transition: filter 4s, transform 4s;
 
-  &.loaded {
-    transition: transform 0.5s;
-    transform: scale(1);
-  }
+  // &.loaded {
+  //   transition: transform 0.5s;
+  //   transform: scale(1);
+  // }
 
-  &.blur {
-    filter: blur(13px);
-    // transform: scale(1.05);
-  }
+  // &.blur {
+  //   filter: blur(13px);
+  //   // transform: scale(1.05);
+  // }
 
-  &.fade {
-    opacity: 0;
-    transform: scale(1);
-    transition: opacity 1s;
-  }
+  // &.fade {
+  //   opacity: 0;
+  //   transform: scale(1);
+  //   transition: opacity 1s;
+  // }
 }
 
-.opaque {
-  opacity: 0.4;
-  object-fit: none;
-}
+// .opaque {
+//   opacity: 0.4;
+//   object-fit: none;
+// }
+
 // .placeholder {
 //   // opacity: 0;
 //   filter: blur(13px);
