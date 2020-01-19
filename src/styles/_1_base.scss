@@ -4,7 +4,6 @@ html {
 }
 
 body {
-  // font-size: 15px;
   font-family: $body;
   margin: 0;
   padding: 0;
@@ -13,9 +12,9 @@ body {
   color: var(--mid-gray);
   letter-spacing: 0.03em;
 
-  // &.preload * {
-  //   transition: none !important;
-  // }
+  &.loading {
+    overflow: hidden;
+  }
 }
 
 h1,
