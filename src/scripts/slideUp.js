@@ -1,56 +1,57 @@
 import { slideUpImg } from "./domElements";
 
-const preloadImage = img => {
-  const lazyImg = img.getAttribute("data-src");
-
-  // if (!lazyImg || !img.src.includes("placeholder")) {
-  if (!lazyImg) {
-    return;
-  }
-
+const preloadImage = (img, slideContainer) => {
   img.src = img.dataset.src;
   img.srcset = img.dataset.srcset;
+
+  img.onload = () => {
+    const placeholder = img.previousElementSibling;
+
+    // if image hasn't slid up yet, skip fade-in animation
+    if (!slideContainer.classList.contains("active")) {
+      placeholder.classList.add("hidden");
+      return;
+    }
+    // fade-in and then hide placeholder
+    placeholder.classList.add("loaded");
+    setTimeout(() => {
+      placeholder.classList.add("hidden");
+    }, 500);
+  };
 };
 
-const slideUp = (entries, observer) => {
+const slideAnimation = (entries, observer) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      const img = entry.target;
-      const parent = img.parentElement;
-      const grandparent = parent.parentElement;
+      const slideContainer = entry.target;
+      const img = slideContainer.getElementsByClassName("slide-img")[0];
+      const lazyImg = img.getAttribute("data-src");
 
-      console.log(entry.target.dataset.lazy, entry.intersectionRatio);
-
-      preloadImage(img);
+      if (lazyImg && !img.src) {
+        preloadImage(img, slideContainer);
+      }
 
       if (entry.intersectionRatio > 0.5) {
-        console.log("activate");
-
-        // slide up image
-        img.classList.add("active");
+        slideContainer.classList.add("active");
 
         // Total slideUp animation time (ms) = transition delay + .5s slide-up animation || Default = 500
         const delay =
           parseFloat(getComputedStyle(img).transitionDelay) * 1000 + 500 || 500;
 
         // change transition timing/overflow hidden after animation (work section only)
-        if (parent.className === "work-img") {
+        if (slideContainer.parentElement.classList.contains("work-item")) {
+          slideContainer.classList.add("overflow");
           setTimeout(() => {
-            img.classList.add("finished");
-            grandparent.classList.add("overflow");
+            slideContainer.classList.add("finished");
           }, delay);
         }
 
         // stop observing image
-        observer.unobserve(img);
+        observer.unobserve(slideContainer);
       }
     }
   });
 };
-
-// const options = {
-//   threshold: [0, 0.5]
-// };
 
 // rootMargin: extend observer's top bounds (trigger early to start preloading)
 const options = {
@@ -58,7 +59,7 @@ const options = {
   rootMargin: "0px 0px 60px 0px"
 };
 
-const observer = new IntersectionObserver(slideUp, options);
+const observer = new IntersectionObserver(slideAnimation, options);
 
 window.addEventListener("load", () => {
   slideUpImg.forEach(image => {
