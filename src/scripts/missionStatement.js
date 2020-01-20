@@ -28,8 +28,6 @@ const lazyLoad = () => {
 
 const missionAnimation = (entries, observer) => {
   const entry = entries[0];
-  console.log("ratio", entry.intersectionRatio);
-  // debugger;
 
   if (!entry.isIntersecting) {
     return;
