@@ -10,7 +10,7 @@ const missionTypewriter = new TypeWriter(
 
 let loaded = false;
 
-const lazyLoad = placeholder => {
+const lazyLoad = () => {
   loaded = true;
 
   // 1) create image which will be held in browser cache
