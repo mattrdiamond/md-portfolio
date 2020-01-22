@@ -75,3 +75,11 @@ cite {
   fill: var(--yellow);
   color: var(--yellow);
 }
+
+/*------------------------------ test */
+.test {
+  height: 300px;
+  // background-color: red;
+  // background-image: url("../img/chatbox2x.jpg");
+  background-image: var(--test);
+}

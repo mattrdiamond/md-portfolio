@@ -10,7 +10,7 @@ const missionTypewriter = new TypeWriter(
 
 let loaded = false;
 
-const lazyLoad = () => {
+const lazyLoad = placeholder => {
   loaded = true;
 
   // 1) create image which will be held in browser cache
@@ -18,29 +18,31 @@ const lazyLoad = () => {
   img.src = "src/img/mission_bkd.jpg";
 
   // 2) when image loaded, update CSS custom properties which are linked
-  // to the background image (used to animate opacity)
+  // to the background image (appears in :after element)
   img.onload = () => {
-    let root = document.documentElement;
+    const root = document.documentElement;
+    const placeholder = missionSection.querySelector(".placeholder");
+
     root.style.setProperty("--mission-bkd", `url("src/img/mission_bkd.jpg")`);
-    root.style.setProperty("--mission-opacity", 1);
+    placeholder.classList.add("hidden");
   };
 };
 
 const missionAnimation = (entries, observer) => {
-  const entry = entries[0];
+  const missionSection = entries[0];
 
-  if (!entry.isIntersecting) {
+  if (!missionSection.isIntersecting) {
     return;
   } else if (!loaded) {
     lazyLoad();
   }
-  if (entry.intersectionRatio === 1) {
+  if (missionSection.intersectionRatio === 1) {
     missionTypewriter.type();
     observer.disconnect();
   }
 };
 
-// extend observer's top bounds to start preloading early
+// extend observer's top bounds to start preloading early (amount based on screen size)
 const topBounds = window.innerWidth < 901 ? "170px" : "130px";
 
 const missionOptions = {

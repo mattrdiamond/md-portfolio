@@ -5,16 +5,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  // &:before {
-  //   content: "";
-  //   position: absolute;
-  //   width: 100%;
-  //   height: 100%;
-  //   // background: url("../img/header_bkd2x.jpg") 50% 50% / cover no-repeat fixed;
-  //   // background: url("../img/test/Landing_Bkd_2x.jpg") 50% 50% / cover no-repeat
-  //   //   fixed;
-  // }
 }
 
 .landing-text {
@@ -140,15 +130,7 @@
 }
 
 // **********************************************************
-// .image-wrapper {
-//   overflow: hidden;
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   background: var(--dark-gray);
-// }
+
 .img-cover {
   // position: absolute;
   // top: 0;
@@ -158,41 +140,4 @@
   position: absolute;
   top: 0;
   left: 0;
-  // transform: scale(1.05);
-  // opacity: 0.7;
-  // transform: scale(1.05);
-  // transition: filter 4s, transform 4s;
-
-  // &.loaded {
-  //   transition: transform 0.5s;
-  //   transform: scale(1);
-  // }
-
-  // &.blur {
-  //   filter: blur(13px);
-  //   // transform: scale(1.05);
-  // }
-
-  // &.fade {
-  //   opacity: 0;
-  //   transform: scale(1);
-  //   transition: opacity 1s;
-  // }
 }
-
-// .opaque {
-//   opacity: 0.4;
-//   object-fit: none;
-// }
-
-// .placeholder {
-//   // opacity: 0;
-//   filter: blur(13px);
-//   transform: scale(1.05);
-//   transition: opacity 1s;
-// }
-// @media (max-width: 900px) {
-//   .landing-page:before {
-//     background-image: url("../img/header_bkd_900_2x.jpg");
-//   }
-// }

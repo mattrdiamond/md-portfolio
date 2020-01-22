@@ -23,15 +23,12 @@
 }
 
 .grid-fourths {
-  // display: flex;
-  // justify-content: space-between;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-row-gap: 4rem;
   grid-column-gap: 2.5rem;
 
   .col {
-    // width: 23%;
     max-width: 265px;
     margin: 0 auto;
   }

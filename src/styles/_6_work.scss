@@ -4,7 +4,7 @@
   // color: black;
   color: rgba(255, 255, 255, 0.2);
   padding: 10px;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
 }
@@ -35,6 +35,20 @@
 
   img {
     width: 100%;
+  }
+
+  .placeholder {
+    position: absolute;
+    opacity: 1;
+    z-index: 1;
+    transition: opacity 0.5s ease;
+    &.loaded {
+      opacity: 0;
+      pointer-events: none;
+    }
+    &.hidden {
+      display: none;
+    }
   }
 }
 
@@ -71,20 +85,6 @@
     &:hover {
       transform: scale(1.05);
     }
-  }
-}
-
-.placeholder {
-  position: absolute;
-  opacity: 1;
-  z-index: 1;
-  transition: opacity 0.5s ease;
-  &.loaded {
-    opacity: 0;
-    pointer-events: none;
-  }
-  &.hidden {
-    display: none;
   }
 }
 
