@@ -72,18 +72,15 @@ const preloadImage = (img, slideContainer) => {
   img.srcset = img.dataset.srcset;
 
   img.onload = () => {
-    const placeholder = img.previousElementSibling;
+    // const placeholder = img.previousElementSibling;
 
     // if image hasn't slid up yet, skip fade-in animation
     if (!slideContainer.classList.contains("active")) {
-      placeholder.classList.add("hidden");
+      img.classList.add("visible");
       return;
     }
-    // fade-in and then hide placeholder
-    placeholder.classList.add("loaded");
-    setTimeout(() => {
-      placeholder.classList.add("hidden");
-    }, 500);
+
+    img.classList.add("loaded");
   };
 };
 
@@ -109,6 +106,7 @@ const slideAnimation = (entries, observer) => {
         // change transition timing/overflow hidden after animation (work section only)
         if (slideContainer.parentElement.classList.contains("work-item")) {
           slideContainer.classList.add("overflow");
+          // *******************change to css transition??
           setTimeout(() => {
             slideContainer.classList.add("finished");
           }, delay);
