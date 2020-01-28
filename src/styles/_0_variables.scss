@@ -10,3 +10,27 @@ $body: "Roboto", sans-serif;
   --soft-white: #eee;
   --yellow: #fb1;
 }
+
+/*------------------------------ svg styles */
+.icon {
+  &.gray-yellow {
+    fill: var(--yellow);
+    color: var(--dark-gray); //currentColor
+  }
+  &.white-yellow {
+    fill: var(--soft-white);
+    color: var(--yellow)
+  }
+  &.dark-gray {
+    fill: var(--dark-gray);
+  }
+}
+
+.soft-white {
+  fill: var(--soft-white);
+}
+
+.yellow {
+  fill: var(--yellow);
+  color: var(--yellow);
+}

@@ -64,22 +64,3 @@ cite {
   background: var(--yellow);
   margin: 1.5rem auto 0;
 }
-
-/*------------------------------ svg styles */
-
-.soft-white {
-  fill: var(--soft-white);
-}
-
-.yellow {
-  fill: var(--yellow);
-  color: var(--yellow);
-}
-
-/*------------------------------ test */
-.test {
-  height: 300px;
-  // background-color: red;
-  // background-image: url("../img/chatbox2x.jpg");
-  background-image: var(--test);
-}
