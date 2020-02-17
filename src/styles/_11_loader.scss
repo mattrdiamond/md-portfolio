@@ -32,6 +32,12 @@ $circle-radius: 45;
   position: relative;
 }
 
+.loader-logo {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+}
+
 /*------------------------------ spinner */
 @function get-dash-value($radius, $percentage) {
   // Calculate circumference (c = 2πr)
@@ -87,11 +93,4 @@ $circle-radius: 45;
     stroke-dashoffset: get-dash-value($circle-radius, 97%);
     transform: rotate(360deg);
   }
-}
-
-/*------------------------------ logo */
-.loader-logo {
-  height: 40px;
-  width: 40px;
-  position: absolute;
 }

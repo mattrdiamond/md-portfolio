@@ -1,15 +1,3 @@
-// *****************************************temp
-.temp {
-  // background: rgba(255, 255, 255, 0.4);
-  // color: black;
-  color: rgba(255, 255, 255, 0.2);
-  padding: 10px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-// *****************************************temp
-
 .work-title {
   font-size: 1.466rem;
   letter-spacing: 0.12em;
@@ -29,6 +17,7 @@
 /*------------------------------ slide up animation */
 .img-wrapper {
   position: relative;
+
   &.overflow {
     overflow: hidden;
   }
@@ -36,35 +25,16 @@
   img {
     width: 100%;
   }
-
-  // .placeholder {
-  //   // position: absolute;
-  //   // position: relative;
-  //   opacity: 1;
-  //   z-index: -1;
-  //   transition: opacity 0.5s, visibility 0.75s;
-  //   // &.loaded {
-  //   //   opacity: 0;
-  //   //   pointer-events: none;
-  //   //   visibility: hidden;
-  //   // }
-  // }
 }
 
 .slide-up {
   opacity: 0;
-  // display: block;
-  // margin-left: auto;
-  // margin-right: auto;
   transition: transform 0.5s ease, opacity 0.5s ease;
   transform: translateY(30%);
 
   &.active {
     transform: translateY(0%);
     opacity: 1;
-    &.finished {
-      transition-delay: 0s;
-    }
   }
 
   // prevent <a> from adding space below image
@@ -83,7 +53,6 @@
     transition: transform 0.5s, opacity 0.5s;
     height: auto;
     position: absolute;
-    // z-index: -1;
     top: 0;
     left: 0;
     opacity: 0;
@@ -111,29 +80,16 @@
   margin-bottom: 75%;
 }
 
-// ******************fix page shift while loading
-// .work-link {
-//   display: inline-block;
-//   width: 100%;
-// }
-// ******************fix page shift while loading
-
 /* delay 1 */
 .grid-thirds .work-item:nth-of-type(2) .slide-up,
 .grid-thirds .work-item:nth-of-type(5) .slide-up {
   transition-delay: 0.25s;
-  &.finished {
-    transition-delay: 0s;
-  }
 }
 
 /* delay 2 */
 .grid-thirds .work-item:nth-of-type(3) .slide-up,
 .grid-thirds .work-item:nth-of-type(6) .slide-up {
   transition-delay: 0.5s;
-  &.finished {
-    transition-delay: 0s;
-  }
 }
 
 // prevent firefox from displaying broken link while images loading
@@ -142,3 +98,18 @@
     visibility: hidden;
   }
 }
+
+// ****************************************TEMP
+// remove position absolute from placeholder
+.placeholder {
+  position: unset;
+}
+// remove spacer?
+.spacer {
+  margin-bottom: 0;
+}
+// hi-res - set to 100% of placeholder (slightly larger when blown up)
+// no, this distorts the height :(
+// .work-item .slide-img {
+//   height: 100%;
+// }

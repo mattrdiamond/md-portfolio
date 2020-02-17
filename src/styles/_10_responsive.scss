@@ -109,16 +109,10 @@
   .grid-thirds .work-item:nth-of-type(3) .slide-up,
   .grid-thirds .work-item:nth-of-type(5) .slide-up {
     transition-delay: 0s;
-    &.finished {
-      transition-delay: 0s;
-    }
   }
   .grid-thirds .work-item:nth-of-type(4) .slide-up,
   .grid-thirds .work-item:nth-of-type(6) .slide-up {
     transition-delay: 0.25s;
-    &.finished {
-      transition-delay: 0s;
-    }
   }
 }
 @media (max-width: 1050px) {
@@ -239,9 +233,6 @@
   .grid-thirds .work-item:nth-of-type(4) .slide-up,
   .grid-thirds .work-item:nth-of-type(6) .slide-up {
     transition-delay: 0s;
-    &.finished {
-      transition-delay: 0s;
-    }
   }
 }
 
@@ -305,20 +296,12 @@
 
 @media (max-width: 500px) {
   .header-text {
-    // display: none;
     padding: 0 7%;
 
     br {
       display: none;
     }
   }
-
-  // :root {
-  //   --mission-bkd: url("https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-  // }
-  // .mission-container:after {
-  //   background-image: url("https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-  // }
 }
 
 @media (max-width: 460px) {
