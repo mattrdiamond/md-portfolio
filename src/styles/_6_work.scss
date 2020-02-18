@@ -69,17 +69,6 @@
   }
 }
 
-.placeholder {
-  position: absolute;
-  top: 0;
-  left: 0;
-  max-height: 100%;
-}
-
-.spacer {
-  margin-bottom: 75%;
-}
-
 /* delay 1 */
 .grid-thirds .work-item:nth-of-type(2) .slide-up,
 .grid-thirds .work-item:nth-of-type(5) .slide-up {
@@ -98,18 +87,3 @@
     visibility: hidden;
   }
 }
-
-// ****************************************TEMP
-// remove position absolute from placeholder
-.placeholder {
-  position: unset;
-}
-// remove spacer?
-.spacer {
-  margin-bottom: 0;
-}
-// hi-res - set to 100% of placeholder (slightly larger when blown up)
-// no, this distorts the height :(
-// .work-item .slide-img {
-//   height: 100%;
-// }
