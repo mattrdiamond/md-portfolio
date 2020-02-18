@@ -6,7 +6,8 @@
   "description": "Matt Diamond Developer/Designer portfolio",
   "scripts": {
     "build": "NODE_ENV=production webpack --config webpack/webpack.config.prod.js  --colors",
-    "start": "webpack-dev-server --open --config webpack/webpack.config.dev.js"
+    "start": "webpack-dev-server --open --config webpack/webpack.config.dev.js",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   ],
   "author": "Matt Diamond",
   "license": "MIT",
+  "homepage": "https://mattrdiamond.github.io/md-portfolio",
   "bugs": {
     "url": "https://github.com/mattrdiamond/md-portfolio/issues"
   },
@@ -49,6 +51,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.6.0",
-    "core-js": "^3.2.1"
+    "core-js": "^3.2.1",
+    "gh-pages": "^2.2.0"
   }
 }
