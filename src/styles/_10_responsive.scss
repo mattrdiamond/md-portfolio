@@ -172,6 +172,23 @@
   }
 }
 
+// mobile landscape
+@media (max-width: 900px) and (max-height: 450px) {
+  .header-title {
+    font-size: 2.25em;
+  }
+
+  .header-text {
+    margin-top: 0.75rem;
+
+    p {
+      line-height: 1.75;
+      font-size: 0.9rem;
+      max-width: 475px;
+    }
+  }
+}
+
 @media (max-width: 830px) {
   .mission-title {
     letter-spacing: 4.5px;
@@ -297,10 +314,6 @@
 @media (max-width: 500px) {
   .header-text {
     padding: 0 7%;
-
-    br {
-      display: none;
-    }
   }
 }
 
@@ -336,5 +349,20 @@
 
   .header-title {
     font-size: 2.5em;
+  }
+
+  // set mobile height to 100vh (excluding browser UI)
+  .landing-page,
+  .img-cover {
+    height: calc(var(--vh, 1vh) * 100);
+  }
+
+  .mission-large {
+    position: absolute;
+    object-position: 0% 50%;
+  }
+
+  .mission-inner {
+    background: rgba(67, 67, 67, 0.6);
   }
 }

@@ -5,8 +5,5 @@ import slideUp from "./slideUp";
 import landingPage from "./landingPage";
 import footer from "./footer";
 import missionStatement from "./missionStatement";
-
-window.onload = () => {
-  const loadScreen = document.getElementById("load-screen");
-  loadScreen.classList.add("loaded");
-};
+import loadScreen from "./loadScreen";
+import mobileLanding from "./mobileLanding";
