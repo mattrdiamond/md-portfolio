@@ -15,7 +15,7 @@ const preloadImage = (img, slideContainer) => {
 };
 
 const slideAnimation = (entries, observer) => {
-  entries.forEach(entry => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
       const slideContainer = entry.target;
       const img = slideContainer.getElementsByClassName("slide-img")[0];
@@ -26,7 +26,6 @@ const slideAnimation = (entries, observer) => {
       }
 
       if (entry.intersectionRatio > 0.5) {
-        // debugger;
         slideContainer.classList.add("active");
 
         // add overflow hidden after animation (work section only) because hidden elements won't trigger intersection observer
@@ -44,13 +43,13 @@ const slideAnimation = (entries, observer) => {
 // rootMargin: extend observer's top bounds (trigger early to start preloading)
 const options = {
   threshold: [0, 1],
-  rootMargin: "0px 0px 75px 0px"
+  rootMargin: "0px 0px 75px 0px",
 };
 
 const observer = new IntersectionObserver(slideAnimation, options);
 
 window.addEventListener("load", () => {
-  slideUpImg.forEach(image => {
+  slideUpImg.forEach((image) => {
     observer.observe(image);
   });
 });

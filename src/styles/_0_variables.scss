@@ -7,6 +7,7 @@ $body: "Roboto", sans-serif;
   --mid-gray: #777;
   --mid-gray1: #888;
   --mid-gray2: #aaa;
+  --light-gray: #e4e4e4;
   --soft-white: #eee;
   --yellow: #fb1;
 }
@@ -19,7 +20,7 @@ $body: "Roboto", sans-serif;
   }
   &.white-yellow {
     fill: var(--soft-white);
-    color: var(--yellow)
+    color: var(--yellow);
   }
   &.dark-gray {
     fill: var(--dark-gray);
