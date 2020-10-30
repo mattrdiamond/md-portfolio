@@ -111,7 +111,7 @@ $icon-size: 30px;
     width: $icon-size;
     height: $icon-size;
     transform: scale(0.85);
-    transition: transform 0.3s;
+    transition: transform 0.2s;
 
     use {
       pointer-events: none;
@@ -151,10 +151,11 @@ $icon-size: 30px;
       --arrow-size: 6px;
       --offset: 2px;
       position: absolute;
-      transition: 0.3s transform, 0.3s opacity;
+      transition: 0.2s transform, 0.2s opacity;
       transform-origin: bottom center;
       pointer-events: none;
       opacity: 0;
+      font-weight: 300;
     }
 
     &:before {
@@ -187,15 +188,12 @@ $icon-size: 30px;
 
 @media (max-width: 530px) {
   .dev-tools {
-    .icon-container:first-of-type {
-      &:hover {
-        .tooltip {
-          left: 0;
-
-          &:before {
-            left: 17px;
-          }
-        }
+    .tooltip:first-of-type {
+      &:hover:before {
+        left: 0;
+      }
+      &:hover:after {
+        left: calc((100% / 2) - var(--arrow-size));
       }
     }
   }
