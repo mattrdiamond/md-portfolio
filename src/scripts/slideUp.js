@@ -42,7 +42,7 @@ const slideAnimation = (entries, observer) => {
 
 // rootMargin: extend observer's top bounds (trigger early to start preloading)
 const options = {
-  threshold: [0, 1],
+  threshold: [0, 0.875],
   rootMargin: "0px 0px 75px 0px",
 };
 
